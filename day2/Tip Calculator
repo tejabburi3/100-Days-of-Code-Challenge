@@ -1,0 +1,27 @@
+def tip_calculator(bill, tip_percentage, members):
+    amount = bill * tip_percentage / 100
+    return (bill + amount) / members
+
+
+print("Welcome to the Tip Calculator 🧮")
+
+while True:
+    bill = float(input("\nWhat was the total bill: "))
+    tip_percentage = float(input("How much percentage of tip would you like to give: "))
+    members = int(input("How many people to split: "))
+    if members <= 0:
+        amount = bill * tip_percentage / 100
+        total_bill = bill + amount
+        print(f"\nTotal bill is ₹{total_bill:.2f}. Only one person pays (no sharing).")
+        break_continue = input("\nWould you like to calculate another one? (yes/no): ").lower()
+        if break_continue == 'no':
+            print("\nThank you 🙏")
+            break
+        continue
+    split_bill = tip_calculator(bill, tip_percentage, members)
+    print(f"\nEach person should pay ₹{split_bill:.2f}")
+
+    break_continue = input("\nWould you like to calculate another one? (yes/no): ").lower()
+    if break_continue == 'no':
+        print("\nThank you 🙏")
+        break
