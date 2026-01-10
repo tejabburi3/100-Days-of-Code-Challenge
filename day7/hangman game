@@ -1,0 +1,54 @@
+import random
+import string
+
+letters = list(string.ascii_lowercase)
+print("Hi! Welcome to Hangman 🎯")
+
+num = random.randint(4, 7)
+word = ""
+
+
+for _ in range(num):
+    word = random.choice(letters) + word
+
+print("Guess the word:", "_ " * num)
+
+display = ['_'] * num
+chances = num
+
+while chances > 0 and '_' in display:
+    guess = input("Enter a guess letter: ").lower()
+
+    if guess not in letters:
+        print(f"❌ Invalid input. You still have {chances} chances.")
+        print(*display)
+        print()
+        continue
+
+    if guess in word:
+        found = False
+        for index, letter in enumerate(word):
+            if letter == guess and display[index] == '_':
+                display[index] = guess
+                found = True
+                break
+
+        if found:
+            print("✅ Correct guess!")
+        else:
+            chances -= 1
+            print("❌ Letter already fully revealed. You lose one chance.")
+    else:
+        chances -= 1
+        print("❌ Wrong guess.")
+
+    if chances > 0:
+        print(*display)
+        print(f"You still have {chances} chances.")
+    print()
+
+if '_' not in display:
+    print("🎉 Yes! You won the game.")
+else:
+    print("💀 You lost the game.")
+    print("The word was:", word)
