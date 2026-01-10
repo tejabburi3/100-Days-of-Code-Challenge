@@ -1,0 +1,83 @@
+library = {
+    "Python Basics": {"total": 10, "available": 10},
+    "Data Structures": {"total": 8, "available": 8},
+    "Machine Learning": {"total": 6, "available": 6},
+    "Artificial Intelligence": {"total": 5, "available": 5},
+    "Web Development": {"total": 7, "available": 7}
+}
+
+
+def show_books():
+    print("\n📚 Library Books:")
+    for book, info in library.items():
+        print(
+            f"- {book} | Total: {info['total']} | Available: {info['available']}"
+        )
+
+
+def add_book():
+    book_name = input("Enter book name to add: ").strip()
+    copies = int(input("Enter number of copies: "))
+
+    if book_name in library:
+        library[book_name]["total"] += copies
+        library[book_name]["available"] += copies
+        print("✅ Copies added to existing book.")
+    else:
+        library[book_name] = {
+            "total": copies,
+            "available": copies
+        }
+        print("✅ New book added to library.")
+
+
+def borrow_book():
+    book_name = input("Enter book name to borrow: ").strip()
+
+    if book_name not in library:
+        print("❌ Book not found.")
+    elif library[book_name]["available"] == 0:
+        print("❌ No copies available.")
+    else:
+        library[book_name]["available"] -= 1
+        print("📖 Book borrowed successfully.")
+
+
+def return_book():
+    book_name = input("Enter book name to return: ").strip()
+
+    if book_name not in library:
+        print("❌ Book not found.")
+    elif library[book_name]["available"] == library[book_name]["total"]:
+        print("❌ All copies are already in the library.")
+    else:
+        library[book_name]["available"] += 1
+        print("✅ Book returned successfully.")
+
+
+def menu():
+    print("\n===== 📚 Library Management System =====")
+    print("1. View Books")
+    print("2. Add Book / Copies")
+    print("3. Borrow Book")
+    print("4. Return Book")
+    print("5. Exit")
+
+
+while True:
+    menu()
+    choice = input("Enter your choice (1-5): ").strip()
+
+    if choice == "1":
+        show_books()
+    elif choice == "2":
+        add_book()
+    elif choice == "3":
+        borrow_book()
+    elif choice == "4":
+        return_book()
+    elif choice == "5":
+        print("👋 Exiting Library Management System. Goodbye!")
+        break
+    else:
+        print("❌ Invalid choice. Please choose between 1 and 5.")
