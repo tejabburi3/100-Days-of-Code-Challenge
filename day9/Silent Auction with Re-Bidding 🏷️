@@ -1,0 +1,41 @@
+print("Welcome to Silent Auction 🏷️")
+
+bids = {}
+
+while True:
+    name = input("Enter your name: ")
+    amount = int(input("Enter your bid amount: "))
+
+    bids[name] = amount
+
+    more = input("Is there anyone else? (yes/no): ").lower()
+    print("\n" * 20)
+
+    if more == "no":
+        break
+
+
+while True:
+    highest_amount = max(bids.values())
+
+    highest_bidders = [
+        name for name, bid in bids.items() if bid == highest_amount
+    ]
+
+    if len(highest_bidders) == 1:
+        winner = highest_bidders[0]
+        print(f"🏆 {winner} wins the auction with {highest_amount}")
+        break
+    print("⚠️ Tie detected between:")
+    for bidder in highest_bidders:
+        print(f"- {bidder}")
+
+    print("\n🔁 Re-bidding round (only tied candidates)\n")
+
+    new_bids = {}
+
+    for bidder in highest_bidders:
+        new_amount = int(input(f"{bidder}, enter your new bid: "))
+        new_bids[bidder] = new_amount
+
+    bids = new_bids
