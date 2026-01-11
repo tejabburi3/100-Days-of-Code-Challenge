@@ -1,0 +1,60 @@
+import string
+
+letters_u = list(string.ascii_uppercase)
+letters_l = list(string.ascii_lowercase)
+
+
+def encrypt(text, num):
+    result = []
+    num = num % 26
+
+    for ch in text:
+        if ch.isupper():
+            n = letters_u.index(ch)
+            pos = (n + num) % 26
+            result.append(letters_u[pos])
+
+        elif ch.islower():
+            n = letters_l.index(ch)
+            pos = (n + num) % 26
+            result.append(letters_l[pos])
+
+        else:
+            result.append(ch)
+
+    print("Encrypted text:", "".join(result))
+
+
+def decrypt(text, num):
+    result = []
+    num = num % 26
+
+    for ch in text:
+        if ch.isupper():
+            n = letters_u.index(ch)
+            pos = (n - num) % 26
+            result.append(letters_u[pos])
+
+        elif ch.islower():
+            n = letters_l.index(ch)
+            pos = (n - num) % 26
+            result.append(letters_l[pos])
+
+        else:
+            result.append(ch)
+
+    print("Decrypted text:", "".join(result))
+
+
+print("Hi! Welcome to Cipher 🔐")
+
+text = input("Please enter the text: ")
+choice = input("Choose encryption (e) or decryption (d): ").lower()
+num = int(input("Enter the number: "))
+
+if choice == 'e':
+    encrypt(text, num)
+elif choice == 'd':
+    decrypt(text, num)
+else:
+    print("❌ Invalid choice")
