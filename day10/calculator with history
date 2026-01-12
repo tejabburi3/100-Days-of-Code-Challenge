@@ -1,0 +1,55 @@
+print("Hi! Welcome to Calculator 🧮")
+
+n = int(input("Enter the first number: "))
+
+def add(x, y):
+    return x + y
+
+def sub(x, y):
+    return x - y
+
+def mul(x, y):
+    return x * y
+
+def div(x, y):
+    return x / y
+
+
+while True:
+    print("\nPlease select an operator:")
+    print("+  -  *  /")
+
+    choose = input("Enter the operator: ")
+
+    if choose == '+':
+        n1 = int(input("Enter the second number: "))
+        result = add(n, n1)
+    elif choose == '-':
+        n1 = int(input("Enter the second number: "))
+        result = sub(n, n1)
+    elif choose == '*':
+        n1 = int(input("Enter the second number: "))
+        result = mul(n, n1)
+    elif choose == '/':
+        n1 = int(input("Enter the second number: "))
+        if n1 == 0:
+            print("❌ Division by zero is not allowed.")
+            continue
+        result = div(n, n1)
+    else:
+        print("❌ Please choose a valid operator.")
+        continue
+    
+    print(f"Result of {n} {choose} {n1} = {result}")
+
+    yes_no = input("Do you want to use the previous result? (yes/no): ").lower()
+
+    if yes_no == 'yes':
+        n = result
+    else:
+        inp = input("Do you want to continue the calculator? (yes/no): ").lower()
+        if inp == 'yes':
+            n = int(input("Enter the first number: "))
+        else:
+            print("👋 Calculator closed. Thank you!")
+            break
