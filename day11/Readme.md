@@ -1,33 +1,46 @@
 # ♠️ Black Jack Game (Python)
 
-A simple console-based Black Jack game built using Python.  
-This project was created as part of **Day 11 practice**, focusing on loops, conditions, and game logic.
+A console-based Black Jack game built using Python.  
+This project was developed as part of **Day 11 learning**, focusing on control flow, functions, and state management.
 
 ---
 
-## 🎮 Game Rules (Custom Version)
+## 🎮 Game Overview
 
-- Cards have values between **1 and 11**
-- Each player starts with **2 cards**
-- The user can choose to **draw cards (`yes`) or stop (`no`)**
-- The user is **NOT forced to stop at 21**
-- If user score exceeds **21**, the user busts
-- Computer draws cards until its score is between **18 and 21**
-- Final scores decide the winner
+This is a **custom implementation of Black Jack**, created for learning purposes.  
+It does not follow all casino rules but is logically consistent and intentionally designed.
 
 ---
 
-## 🧠 Game Logic Summary
+## 🧩 Game Rules
 
-### User
-- Can draw as many cards as desired
-- Busts if score > 21
-- Score = 21 is allowed (user decides when to stop)
+### Player (User)
+- Starts with **2 cards**
+- Can choose to **draw (`yes`) or stop (`no`)**
+- Is **not forced to stop at 21**
+- Busts if score **exceeds 21**
 
 ### Computer
-- Draws cards while score < 18
-- Holds cards when score is between 18 and 21
-- Busts if score > 21
+- Starts with **2 cards**
+- Draws cards **only until it decides to hold**
+- Automatically holds when score is between **18 and 21**
+- Busts if score **exceeds 21**
+- Once holding, **never draws again**
+
+---
+
+## 🧠 Core Logic
+
+- Card values range from **1 to 11**
+- Computer behavior is controlled using a **state flag**
+- Computer decisions are evaluated using a function that returns:
+  - `"draw"` → can continue drawing
+  - `"hold"` → stop drawing
+  - `"bust"` → round ends
+- Game continues until:
+  - User busts
+  - Computer busts
+  - User chooses to stop
 
 ---
 
@@ -35,6 +48,7 @@ This project was created as part of **Day 11 practice**, focusing on loops, cond
 
 - User busts → ❌ User loses
 - Computer busts → 🎉 User wins
+- Both bust → ❌ Both lose
 - User score > computer score → 🎉 User wins
 - Scores equal → 🤝 Draw
 - Otherwise → 😎 Computer wins
@@ -44,3 +58,4 @@ This project was created as part of **Day 11 practice**, focusing on loops, cond
 ## 🔁 Play Again Feature
 
 After each round, the user is asked:
+
