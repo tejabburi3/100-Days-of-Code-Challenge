@@ -1,0 +1,59 @@
+import random
+
+print("Welcome to Black Jack Game ♠️")
+
+def random_card():
+    return random.randint(1, 11)
+out_loop=True
+while out_loop:
+    user = random.choices(range(1, 11), k=2)
+    computer = random.choices(range(1, 11), k=2)
+
+    game_on = True
+
+    while game_on:
+        user_score = sum(user)
+
+        print(f"\nYour cards: {user}, Total score: {user_score}")
+        print(f"My visible card: {computer[1:]}")
+
+        if user_score > 21:
+            print("You went BUST! You lose 😢")
+            game_on = False
+            break
+
+        user_wish = input("Draw a card? Yes or No: ").lower()
+
+        if user_wish == "yes":
+            user.append(random_card())
+        else:
+            while True:
+                computer_score = sum(computer)
+                if 18 <= computer_score <= 21:
+                    print("I am holding my cards 😎")
+                    break
+                computer.append(random_card())
+            game_on = False
+
+    user_score = sum(user)
+    computer_score = sum(computer)
+
+    print("\nFinal Cards:")
+    print(f"Your cards: {user}, Score: {user_score}")
+    print(f"My cards: {computer}, Score: {computer_score}")
+
+    if user_score > 21:
+        print("You Lose ❌")
+    elif computer_score > 21:
+        print("You Win 🎉")
+    elif user_score > computer_score or user_score==21:
+        print("You Win 🎉")
+    elif user_score == computer_score:
+        print("It's a Draw 🤝")
+    else:
+        print("I Win 😎")
+    Continue_not=input("Would You like to play again or not ? yes or no : ").lower()
+    if Continue_not!='yes':
+        print('Thank You , Play again When ever you are free ')
+        out_loop=False
+        
