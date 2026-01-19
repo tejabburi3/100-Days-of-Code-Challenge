@@ -26,3 +26,4 @@ The game ends when:
 💀 The player runs out of attempts
 
 After each round, the player can choose to play again or exit.
+
