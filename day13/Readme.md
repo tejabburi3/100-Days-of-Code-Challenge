@@ -23,8 +23,3 @@ The game uses **multiple datasets** such as:
 
 ## 📂 Project Structure
 
-Higher-Lower-Game/
-│
-├── data_higher_lower.py # Contains all datasets
-├── main.py # Main game logic
-└── README.md # Project documentation
