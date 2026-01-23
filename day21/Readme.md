@@ -26,47 +26,9 @@ Wall collision
 
 Self-collision
 
-🛠️ Tech Stack
-
-Language: Python 3
-
-Graphics: Turtle module
-
-Concepts: OOP, game loop, collision detection
-
-📁 Project Structure
-snake-game/
-│
-├── main.py           # Main game loop
-├── snake_main.py     # Snake movement and controls
-├── food.py           # Food logic
-├── scoreboard.py     # Score display and game over message
-├── README.md         # Documentation
-
-▶️ Getting Started
-Prerequisites
-
-Python 3.x installed
-
-Verify installation:
-
-python --version
-
-Installation & Run
-
-Clone the repository:
-
-git clone https://github.com/your-username/snake-game.git
 
 
-Navigate to the project folder:
 
-cd snake-game
-
-
-Run the game:
-
-python main.py
 
 🎮 Controls
 Key	Action
