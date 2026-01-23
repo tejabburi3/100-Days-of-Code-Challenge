@@ -1,0 +1,8 @@
+📁 Project Structure
+snake-game/
+│
+├── main.py           # Main game loop
+├── snake_main.py     # Snake movement and controls
+├── food.py           # Food logic
+├── scoreboard.py     # Score display and game over message
+├── README.md         # Documentation
