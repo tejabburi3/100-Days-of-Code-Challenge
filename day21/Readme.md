@@ -32,10 +32,10 @@ Self-collision
 
 🎮 Controls
 Key	Action
-⬆️ Up Arrow	Move Up
-⬇️ Down Arrow	Move Down
-⬅️ Left Arrow	Move Left
-➡️ Right Arrow	Move Right
+1.⬆️ Up Arrow	Move Up
+2.⬇️ Down Arrow	Move Down
+3.⬅️ Left Arrow	Move Left
+4.➡️ Right Arrow	Move Right
 🧠 How It Works
 
 The snake moves continuously using a timer-based loop
