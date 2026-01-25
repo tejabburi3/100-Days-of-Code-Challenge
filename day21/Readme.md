@@ -33,7 +33,6 @@ Self-collision
 🎮 Controls
 Key	Action
 
-The **Snake Game ** is a console-based Python game where:
 -⬆️ Up Arrow	Move Up
 -⬇️ Down Arrow	Move Down
 -⬅️ Left Arrow	Move Left
