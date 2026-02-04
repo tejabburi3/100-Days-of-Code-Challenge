@@ -4,7 +4,7 @@ with open("/file_path/my_text.txt", "r") as file1:
     names = file1.read().splitlines()
 
 # Read template letter
-with open("/file_path/matter.txt", "r") as file:
+with open("/file_path/Matter.txt", "r") as file:
     template = file.read()
 
 # Create personalized letters
