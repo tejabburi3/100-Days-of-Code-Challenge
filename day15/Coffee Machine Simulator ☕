@@ -1,0 +1,72 @@
+storage={'coffee':50,'milk':3000,'water':5000}
+profit=0
+
+menu = {
+    'expresso': {
+        'items': {'water':50, 'coffee':18},
+        'cost': 52
+    },
+    'latte': {
+        'items': {'water':200, 'coffee':24, 'milk':150},
+        'cost': 88
+    },
+    'cappuccino': {
+        'items': {'water':250, 'coffee':24, 'milk':100},
+        'cost': 122
+    }
+}
+
+def make_coffee(name):
+    recipe = menu[name]['items']
+
+    # check stock
+    for item in recipe:
+        if storage[item] < recipe[item]:
+            return 'out of stock ' + item
+
+    # reduce stock
+    for item in recipe:
+        storage[item] -= recipe[item]
+
+    return 'ok'
+
+
+def check_money(price):
+    global profit
+
+    one = int(input("How many 1₹ coins : ")) * 1
+    two = int(input("How many 2₹ coins : ")) * 2
+    five = int(input("How many 5₹ coins : ")) * 5
+    ten = int(input("How many 10₹ coins : ")) * 10
+
+    total = one + two + five + ten
+
+    if total >= price:
+        profit += price
+        return total - price
+    else:
+        print('❌ insufficient funds')
+        return None
+
+
+while True:
+    print("\nMenu: expresso / latte / cappuccino ")
+    user_choice = input("What do you want: ").lower()
+
+    if user_choice == 'off':
+        break
+
+    elif user_choice == 'report':
+        print(storage, "profit:", profit)
+
+    elif user_choice in menu:
+        price = menu[user_choice]['cost']
+
+        change = check_money(price)
+        if change is not None:
+            t = make_coffee(user_choice)
+            if t == 'ok':
+                print(f"☕ Here is your {user_choice}. Change: {change}")
+
+    else:
+        print('invalid input')
