@@ -2,7 +2,7 @@ storage={'coffee':50,'milk':3000,'water':5000}
 profit=0
 
 menu = {
-    'expresso': {
+    'espresso': {
         'items': {'water':50, 'coffee':18},
         'cost': 52
     },
@@ -50,7 +50,7 @@ def check_money(price):
 
 
 while True:
-    print("\nMenu: expresso / latte / cappuccino ")
+    print("\nMenu: espresso / latte / cappuccino ")
     user_choice = input("What do you want: ").lower()
 
     if user_choice == 'off':
