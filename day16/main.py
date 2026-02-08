@@ -1,5 +1,5 @@
-#Coffee Machine Console App (Python (OOPS)  )
-#Day 15 Update version 
+"""Coffee Machine Console App (Python (OOPS) )
+Day 15 Update version """
 import coffee_items
 import coffee_pricecheck
 
