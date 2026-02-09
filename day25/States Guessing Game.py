@@ -28,7 +28,7 @@ while len(guessed_state)<50:
 
         missing_states = [state for state in states_name if state not in guessed_state]
 
-        new_data = pandas.DataFrame(missing_states)
+        new_data = pandas.DataFrame(missing_states, columns=["Missed States"])
         new_data.to_csv("States_Missed.csv")
 
         break
