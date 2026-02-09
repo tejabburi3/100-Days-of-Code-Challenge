@@ -31,11 +31,7 @@ This is an interactive Python game where the player guesses the names of all 50 
 - User input handling
 
 ## Example
+5/50 States Correct
+What's another state's name? California
 
 Typing `Exit` will end the game and save the remaining states.
-
-## Learning Outcome
-This project helped me learn how to combine graphical programming with data handling, work with CSV files, and build an interactive game using Python.
-
-## Part of
-100 Days of Code Challenge 💪
