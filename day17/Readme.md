@@ -37,6 +37,7 @@ For every valid alphabet letter:
 ### Input
 Enter a word or words: code123
 ### Output
+---
 C : Compiler
 O : Object
 D : Debugger
